@@ -1,0 +1,48 @@
+{% extends "admin.layouts.app" %}
+
+{% block title %}Телефоны{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-5 col-md-7">
+            {% if error is not empty %}
+                <div class="alert alert-danger" role="alert">Телефон уже добавлен в базу</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label>Обработан</label>
+                <p class="form-control-static">{% if phone.call is empty %}<span class="text-success">новый</span>{% else %}{{ item.call | date ("d.m H:i") }}{% endif %}</p>
+            </div>
+
+                <div class="form-group">
+                    <label>Номер телефона</label>
+                    <p class="form-control-static">{{ phone.number }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Источник телефона</label>
+                    <p class="form-control-static">{{ phone.vendor }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Область</label>
+                    <p class="form-control-static">{{ phone.group_city }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Город</label>
+                    <p class="form-control-static">{{ phone.city }}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Сибирский регион</label>
+                    <p class="form-control-static">{% if phone.is_sib is empty %}+{% else %}-{% endif %}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Примечание</label>
+                    <p class="form-control-static">{{ phone.comment }}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
