@@ -37,7 +37,7 @@
                     <tr>
                         <td>{{ item.id }}</td>
                         <td class="text-nowrap">{{ item.name }}</td>
-                        <td><a href="">редактировать</a></td>
+                        <td><a href="{{ route('admin_query_view', { id: item.id }) }}">редактировать</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

@@ -45,4 +45,24 @@
             </form>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-5 col-md-7">
+            <div class="row">
+                {% for item in images %}
+                <div class="col-lg-4 col-md-2">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <img src="{{ route('admin_query_image', {hash: item.hash }) }}" style="width: 100%">
+                            <h3>{{ item.title }}</h3>
+                            <p><a href="#" class="btn btn-primary btn-block" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            {{ images.render() | raw }}
+        </div>
+    </div>
 {% endblock %}

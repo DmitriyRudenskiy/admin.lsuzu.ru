@@ -15,11 +15,16 @@ class CreateImageTable extends Migration
         Schema::create('image', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vendor_id')->unsigned();
+            $table->boolean('visible')->default(true);
+            $table->boolean('download')->default(false);
             $table->string('hash')->unique();
             $table->string('title');
             $table->string('description');
             $table->string('original');
             $table->string('source');
+
+            $table->index('visible');
+            $table->index('download');
         });
     }
 

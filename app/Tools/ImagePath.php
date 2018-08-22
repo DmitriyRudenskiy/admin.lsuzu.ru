@@ -50,7 +50,7 @@ class ImagePath
 
     public function getPathThumbnailSize()
     {
-        $dir = storage_path('image')
+        $dir = realpath(app_path() . DIRECTORY_SEPARATOR . env('IMAGE_PATH'))
             . DIRECTORY_SEPARATOR
             . self::SIZE_THUMBNAIL
             . $this->path;

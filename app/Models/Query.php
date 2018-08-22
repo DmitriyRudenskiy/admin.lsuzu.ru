@@ -22,4 +22,9 @@ class Query extends Model
 
         return ($query !== null);
     }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'query_image', 'query_id', 'image_id');
+    }
 }

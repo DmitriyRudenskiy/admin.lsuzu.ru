@@ -14,11 +14,11 @@ class CreateQueryTable extends Migration
     {
         Schema::create('query', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('source_id')->unsigned();
+            $table->boolean('visible')->default(true);
             $table->string('name')->unique();
             $table->string('alias')->unique();
 
-            $table->foreign('source_id')->references('id')->on('source');
+            $table->index('visible');
         });
     }
 

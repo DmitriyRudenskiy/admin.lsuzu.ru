@@ -12,6 +12,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => 'Adm
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
     Route::get('/queries', 'QueryController@index')->name('query_index');
+    Route::get('/query/view/{id}', 'QueryController@view')->name('query_view');
+    Route::get('/query/image/{hash}', 'QueryController@image')->name('query_image');
 
 });
 
