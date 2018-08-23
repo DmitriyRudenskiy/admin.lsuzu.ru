@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Query;
 use App\Tools\ImagePath;
+use App\Tools\Translit;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -12,7 +13,7 @@ class QueryController extends Controller
 {
     public function index(Query $queryRepository)
     {
-        $list = $queryRepository->paginate(15);
+        $list = $queryRepository->orderBy('id', 'desc')->paginate(15);
 
         return view(
             'admin.query.index',
@@ -33,6 +34,17 @@ class QueryController extends Controller
                 'images' => $query->images()->orderBy('id', 'desc')->paginate(12)
             ]
         );
+    }
+
+    public function insert(Request $request, Query $queryRepository)
+    {
+        $query = new $queryRepository;
+        $query->visible = 1;
+        $query->name = trim($request->get('query'));
+        $query->alias = (new Translit())->get($query->name);
+        $query->save();
+
+        return redirect()->back();
     }
 
     public function image($hash)

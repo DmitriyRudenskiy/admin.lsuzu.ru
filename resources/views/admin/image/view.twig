@@ -1,0 +1,36 @@
+{% extends "admin.layouts.app" %}
+
+{% block title %}Редактирование информации изображения{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-5 col-md-7">
+            {% if session_has('success') %}
+                <div class="alert alert-success" role="alert">Изображение успешно загружено</div>
+            {% endif %}
+
+            <h1>Редактирование информации изображения</h1>
+
+            <form action="{{ route('admin_image_update') }}" method="post">
+                <input type="hidden" name="id" value="{{ image.id }}">
+                <input type="hidden" name="query_id" value="{{ query_id }}">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Название</label>
+                    <input type="text" name="title" class="form-control" value="{{ image.title }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Описание</label>
+                    <input type="text" name="description" class="form-control" value="{{ image.description }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Сайт владелец картинки</label>
+                    <input type="text" name="original" class="form-control" value="{{ image.original }}">
+                </div>
+
+                <button type="submit" class="btn btn-default">Сохранить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

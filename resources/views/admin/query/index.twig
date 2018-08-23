@@ -4,24 +4,25 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-7 col-md-12">
-            <h1>Телефоны (Всего: {{ list.total }})</h1>
 
-            <!--
-            <div class="row">
-                <div class="col-md-9">
-                    <form class="form-inline well">
+
+            <div class="row" style="padding-top: 24px">
+                <form action="{{ route('admin_query_insert') }}" method="post">
+                    <div class="col-md-9">
                         <div class="form-group">
-                            <label class="sr-only">Номер (или часть)</label>
-                            <input type="text" name="q" class="form-control" value="{{ email }}" placeholder="Название города">
+                            <label class="sr-only">Текст запроса (поисковая фраза)</label>
+                            <input type="text" name="query" class="form-control" value="" placeholder="Текст запроса (поисковая фраза)">
                         </div>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Выбрать</button>
-                    </form>
-                </div>
-                <div class="col-md-3">
-                    <a href="" class="btn btn-success btn-block">Добавить</a>
-                </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить</button>
+                    </div>
+                </form>
             </div>
-            -->
+
+
+            <h1>Телефоны (Всего: {{ list.total }})</h1>
 
             {% if list.total > 0 %}
             <table class="table table-striped">
