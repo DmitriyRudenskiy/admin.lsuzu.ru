@@ -16,17 +16,17 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Название</label>
-                    <input type="text" name="title" class="form-control" value="{{ image.title }}">
+                    <input type="text" name="title" class="form-control" value="{{ image.title }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Описание</label>
-                    <input type="text" name="description" class="form-control" value="{{ image.description }}">
+                    <input type="text" name="description" class="form-control" value="{{ image.description }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Сайт владелец картинки</label>
-                    <input type="text" name="original" class="form-control" value="{{ image.original }}">
+                    <input type="text" name="original" class="form-control" value="{{ image.original }}" required>
                 </div>
 
                 <button type="submit" class="btn btn-default">Сохранить</button>

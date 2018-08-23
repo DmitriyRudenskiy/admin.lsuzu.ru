@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <script src="https://vk.com/js/api/openapi.js?159" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="vk_auth"></div>
+<script type="text/javascript">
+    window.onload = function () {
+        VK.init({apiId: 6669747});
+        VK.Widgets.Auth('vk_auth', {});
+
+        var users = VK.Friends.get(1);
+
+        console.log(users);
+    }
+</script>
+</body>
+</html>

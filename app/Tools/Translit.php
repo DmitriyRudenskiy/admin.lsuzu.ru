@@ -21,11 +21,10 @@ class Translit
 
     public function get($text)
     {
-
-        $text = strtoupper($text);
+        $text = mb_strtoupper($text);
 
         $text = strtr($text, $this->char());
 
-        return trim(strtolower($text));
+        return trim(mb_strtolower($text));
     }
 }
